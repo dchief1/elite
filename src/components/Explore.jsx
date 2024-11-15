@@ -6,13 +6,13 @@ import icon2 from '../assets/images/hybrid.png';
 import icon3 from '../assets/images/remote-work 1.png';
 import icon4 from '../assets/images/white-collar.png';
 import xicon from '../assets/images/xicon.png'
-import join from '../assets/images/join.jpg'
+import join from '../assets/images/join.png'
 import ui from '../assets/images/UI.png'
 import playstore from '../assets/images/playstore.png'
 import apple from '../assets/images/apple.png'
 import flyer from '../assets/images/flyer2.png';
 import background from '../assets/images/man.jpg';
-import { ArrowLeft, ArrowRight, BookmarkIcon, DiamondIcon, DotIcon, FacebookIcon, InstagramIcon, Star, StarIcon, XIcon } from 'lucide-react';
+import { ArrowLeft, ArrowRight, BookmarkIcon, DiamondIcon, DotIcon, FacebookIcon, InstagramIcon, Star, StarHalfIcon, StarIcon, XIcon } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -181,9 +181,9 @@ const Explore = () => {
                 <p className="mt-4">Rating</p>
                 <div className="flex justify-center text-yellow-400">
                   {Array.from({ length: Math.floor(profile.rating) }).map((_, i) => (
-                    <StarIcon key={i} className="w-5 h-5" />
+                    <StarIcon key={i} className="w-5 h-5 fill-yellow-500" />
                   ))}
-                  {profile.rating % 1 !== 0 && <StarIcon className="w-5 h-5" />} {/* Half-star icon */}
+                  {profile.rating % 1 !== 0 && <StarHalfIcon className="w-5 h-5 fill-yellow-500" />} {/* Half-star icon */}
                 </div>
 
                 <div className="bg-purple-800 rounded-xl mt-6 p-4 flex flex-wrap justify-center gap-2">
@@ -239,9 +239,9 @@ const Explore = () => {
                 <p className="mt-4">Rating</p>
                 <div className="flex justify-center text-yellow-400">
                   {Array.from({ length: Math.floor(profile.rating) }).map((_, i) => (
-                    <StarIcon key={i} className="w-5 h-5" />
+                    <StarIcon key={i} className="w-5 h-5 fill-yellow-500" />
                   ))}
-                  {profile.rating % 1 !== 0 && <StarIcon className="w-5 h-5" />} {/* Half-star icon */}
+                  {profile.rating % 1 !== 0 && <StarHalfIcon className="w-5 h-5 fill-yellow-500" />} {/* Half-star icon */}
                 </div>
 
                 <div className="bg-purple-800 rounded-xl mt-6 p-4 flex flex-wrap justify-center gap-2">
@@ -266,8 +266,8 @@ const Explore = () => {
       </div>
 
      
-      <img src={flyer} className="lg:w-3/5 w-full mx-auto mt-6 mb-6" alt="Flyer" />
-      <div className="relative">
+      {/* <img src={flyer} className="lg:w-3/5 w-full mx-auto mt-6 mb-6" alt="Flyer" /> */}
+      <div className="relative mt-5">
       <div className="relative w-full lg:h-screen  lg:block  hidden h-auto mx-auto rounded-bl-[40px] rounded-br-[40px]">
   <img 
     src={background} 
@@ -363,18 +363,14 @@ const Explore = () => {
     }
 </div>
 
-<div className="mt-4 w-full flex justify-center">
 
-<button  onClick={() => setIsModalOpen(true)}  className='bg-white text-black rounded-md py-3 px-5  font-semibold'>Join Waitlist</button>
-      
-</div>
-<div className="relative mt-10 mb-12 py-4 ">
-<img src={join} className='w-full h-full '></img>
-<button  onClick={() => setIsModalOpen(true)}  className='bg-white rounded-md py-3 px-5 absolute right-6 text-black bottom-5 lg:bottom-10 font-semibold'>Join Waitlist</button>
+<div className="relative mt-10 mb-12 py-4 lg:w-4/5 mx-auto ">
+<img src={join} className='w-full  h-full '></img>
+<button  onClick={() => setIsModalOpen(true)}  className='bg-white rounded-md lg:py-3 lg:px-5  py-2 px-3 absolute right-6 text-black text-sm bottom-5 lg:bottom-10 font-semibold'>Join Waitlist</button>
 
 </div>
 <div className="bg-gray-400 justify-center py-4">
-<div className="bg-gray-400 justify-center text-center items-center py-4 lg:flex block w-4/5 mx-auto gap-10">
+<div className="bg-gray-400 justify-center text-center items-center py-4 lg:flex block lg:w-4/5  w-full mx-auto gap-10">
     <img src={ui}  className='mx-auto lg:mx-0 lg:2/5'/>
     <div className=" text-center lg:w-3/5">
         <h2 className='text-2xl text-white'>Launching Soon On</h2>
@@ -390,14 +386,14 @@ const Explore = () => {
             </div>
 
         </div>
-<button className='bg-white text-black rounded-md py-3 px-5  mt-6 font-semibold'>Be the first to use the app on free subscription</button>
+<button className='bg-white text-black rounded-md py-3 px-5 w-4/5  mt-6 font-semibold'>Be the first to use the app on free subscription</button>
 
     </div>
 </div>
 <div className='mt-10 text-white'>
-    <h2 className='text-center text-3xl mb-6'>What we do</h2>
+    <h2 className='text-center text-3xl mb-6 underline'>What we do</h2>
     <div className="lg:flex gap-4 mx-auto lg:w-4/5  w-[90%] py-6">
-            <div className="bg-[#D85DF61A] p-3 mb-3 rounded-md lg:w-1/2 w-full">
+            <div className="bg-[#D85DF61A] p-3 mb-3 rounded-[50px] lg:w-1/2 w-full shadow-lg">
 
                 <h1 className="text-white text-center  text-3xl lg:text-4xl font-semibold mb-3">For Companies</h1>
                 <p className='lg:text-2xl text-1xl'>Sign up today, post your job and we will match you with professionals</p>
@@ -443,7 +439,7 @@ const Explore = () => {
                
 
             </div>
-            <div className="bg-[#F9C48333] p-3 block mb-3 lg:w-1/2 w-full">
+            <div className="bg-[#F9C48333] p-3 block mb-3 rounded-[50px] lg:w-1/2 w-full shadow-lg">
                 <h1 className="text-white  text-center  text-3xl lg:text-4xl font-semibold mb-3">For Professionals</h1>
                 <p className='text-2xl'>Sign up today, post your job and we will match you with professionals</p>
                
