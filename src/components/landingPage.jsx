@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import WaitlistModal from "./WaitlistModal";  
 import { Play } from 'lucide-react';
 import Explore from './Explore';
+import video from '../assets/videos/Elitejobs.tech Ai 2 1video.mp4'
 
 const NavLink = ({ href, children }) => (
   <a 
@@ -49,17 +50,29 @@ const LandingPage = () => {
 
             {/* Right Video Section */}
             <div className="w-full lg:w-1/2">
-              <div className="relative aspect-video bg-gray-700 rounded-xl overflow-hidden">
-                <button className="absolute inset-0 w-full h-full flex items-center justify-center group transition-all duration-300">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110">
-                    <Play className="w-8 h-8 text-black ml-1" />
-                  </div>
+  <div className="relative aspect-video bg-gray-700 rounded-xl overflow-hidden">
+    {/* Video Element */}
+    <video
+      className="absolute inset-0 w-full h-full object-cover"
+      src={video} // Replace with the path to your video
+      controls={false} // Hide default controls
+      muted
+      loop
+      autoPlay
+    ></video>
 
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                </button>
-              </div>
-            </div>
+    {/* Play Button */}
+    <button className="absolute inset-0 w-full h-full flex items-center justify-center group transition-all duration-300">
+      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110">
+        <Play className="w-8 h-8 text-black ml-1" />
+      </div>
+
+      {/* Hover overlay */}
+      <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+    </button>
+  </div>
+</div>
+
           </div>
           
           {/* Modal */}
