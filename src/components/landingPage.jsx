@@ -56,7 +56,7 @@ const LandingPage = () => {
       className="absolute inset-0 w-full h-full object-cover"
       src={video} // Replace with the path to your video
       controls={false} // Hide default controls
-      muted
+      
       loop
       autoPlay
     ></video>
