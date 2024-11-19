@@ -63,7 +63,7 @@ const LandingPage = () => {
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
-          src="/path-to-your-video.mp4" // Replace with the path to your video
+          src={video}  // Replace with the path to your video
           loop
           playsInline
           muted // Default muted until the play button is clicked
