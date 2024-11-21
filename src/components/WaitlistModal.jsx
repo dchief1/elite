@@ -60,7 +60,7 @@ const WaitlistModal = ({ onClose }) => {
         {/* Modal Content */}
         <h2 className="text-2xl font-bold mb-4 text-[#000000]">Join The Waitlist</h2>
         <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={handleSubmit}>
-          <div>
+          <div  className = "md:col-span-2">
             <label htmlFor="firstName" className="block text-sm font-medium">
               First Name
             </label>
@@ -86,7 +86,7 @@ const WaitlistModal = ({ onClose }) => {
               className="border border-gray-300 text-gray-700 rounded-lg w-full px-4 py-2 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
-          <div>
+          <div className = "md:col-span-2">
             <label htmlFor="email" className="block text-sm font-medium">
               Email Address
             </label>
