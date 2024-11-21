@@ -19,7 +19,7 @@ const WaitlistModal = ({ onClose }) => {
 
     try {
       // Send the data to the API using fetch
-      const response = await fetch("http://localhost:8080/api/v1/waitlists/add", {
+      const response = await fetch("https://elite-api-ozw6.onrender.com/api/v1/waitlists/add", {
         method: "POST", // HTTP method
         headers: {
           "Content-Type": "application/json", // Set content type to JSON
