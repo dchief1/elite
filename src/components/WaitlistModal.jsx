@@ -58,7 +58,7 @@ const WaitlistModal = ({ onClose }) => {
         </button>
 
         {/* Modal Content */}
-        <h2 className="text-2xl font-bold mb-4">Join The Waitlist</h2>
+        <h2 className="text-2xl font-bold mb-4 text-[#000000]">Join The Waitlist</h2>
         <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="firstName" className="block text-sm font-medium">
