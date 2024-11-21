@@ -5,10 +5,12 @@ const WaitlistModal = ({ onClose }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false); // State to track loading status
 
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Set loading to true when form is being submitted
 
     // Prepare form data with correct parameter names
     const formData = {
@@ -43,6 +45,8 @@ const WaitlistModal = ({ onClose }) => {
     } catch (error) {
       // Catch network or other errors
       console.error("Error submitting the form:", error);
+    } finally {
+      setLoading(false); // Set loading to false after the request is done
     }
   };
 
@@ -60,7 +64,7 @@ const WaitlistModal = ({ onClose }) => {
         {/* Modal Content */}
         <h2 className="text-2xl font-bold mb-4 text-[#000000]">Join The Waitlist</h2>
         <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={handleSubmit}>
-          <div  className = "md:col-span-2">
+          <div className="md:col-span-2">
             <label htmlFor="firstName" className="block text-sm font-medium">
               First Name
             </label>
@@ -86,7 +90,7 @@ const WaitlistModal = ({ onClose }) => {
               className="border border-gray-300 text-gray-700 rounded-lg w-full px-4 py-2 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
-          <div className = "md:col-span-2">
+          <div className="md:col-span-2">
             <label htmlFor="email" className="block text-sm font-medium">
               Email Address
             </label>
@@ -103,9 +107,17 @@ const WaitlistModal = ({ onClose }) => {
           <div className="md:col-span-2">
             <button
               type="submit"
-              className="bg-purple-500 text-white rounded-lg w-full py-3 mt-4 hover:bg-purple-600 transition"
+              className="bg-purple-500 text-white rounded-lg w-full py-3 mt-4 hover:bg-purple-600 transition relative"
+              disabled={loading} // Disable button while loading
             >
-              Submit
+              {/* Conditionally render the spinner or the button text */}
+              {loading ? (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-6 h-6 border-4 border-t-4 border-purple-500 rounded-full animate-spin"></div>
+                </div>
+              ) : (
+                "Submit"
+              )}
             </button>
           </div>
         </form>
